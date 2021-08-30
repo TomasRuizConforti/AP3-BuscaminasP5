@@ -1,5 +1,7 @@
 # TP - Buscaminas
 
+Tomas Ruiz Conforti
+
 ## Introducción
 En este trabajo estaremos programando un juego similar al clásico Buscaminas (si no lo conocés podés probarlo [acá http://buscaminas.eu/](http://buscaminas.eu/) ). 
 
