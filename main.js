@@ -16,6 +16,7 @@ var hizoClick = false;
 //Otras variables
 var casillerosSinDescubrir;
 
+
 function setup() {
   createCanvas(500, 500); //crea un lienzo o panel donde estará el juego. El primer parámetro es el ancho y el segundo el alto del lienzo.
   laMagiaDeLosProfes();
@@ -30,17 +31,15 @@ function setup() {
 
 function draw() {
   if (hizoClick == true) {
-    pintarCasillero(
-      columnaPresionada,
-      filaPresionada,
-      COLOR_CASILLERO_SIN_MINA
-    ); //pinta el casillero clickeado. Modificar/completar
+    pintarCasillero(columnaPresionada,filaPresionada, COLOR_CASILLERO_SIN_MINA ); //pinta el casillero clickeado. Modificar/completar
     if (tieneMinaCasillero(columnaPresionada, filaPresionada)== true) {
       perder();
+      ponerMinaCasillero(1,1);
     }
-
+    }
     hizoClick = false; //Indico que ya "procesé" el click del usuario. NO modificar
   }
+  i
 }
 
 function ganoElJuego() {
@@ -55,6 +54,26 @@ function mostrarMinas() {
   // Modificar/completar
 }
 
-function contarMinasAlrededor(columna, fila) {
+function contarMinasAlrededor(columna, fila) 
+{
+  var minas = 0;
+  if(tieneMinaCasillero(columna, fila + 1))
+       minas = minas + 1;
+      if(tieneMinaCasillero(columna + 1, fila + 1))
+      minas = minas + 1;
+      if(tieneMinaCasillero(columna , fila -1))
+       minas = minas + 1;
+      if(tieneMinaCasillero(columna - 1, fila -1))
+       minas = minas + 1;
+      if(tieneMinaCasillero(columna +1, fila))
+       minas = minas + 1;
+      if(tieneMinaCasillero(columna -1, fila + 1))
+        minas = minas + 1;
+      if(tieneMinaCasillero(columna +1, fila - 1))
+         minas = minas + 1;
+      if(tieneMinaCasillero(columna -1, fila))
+          minas = minas + 1;
+      if(tieneMinaCasillero(columna, fila -1))
+
   return 9; //Esto hace que SIEMPRE cuente 9 minas alrededor. Modificar/completar
 }
